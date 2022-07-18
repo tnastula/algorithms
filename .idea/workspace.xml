@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68215a2c-07e2-4e55-9776-b6e4f15a8483" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Algorithms.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HelloGoodbye.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HelloWorld.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RandomWord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnionFind/QuickFind/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnionFind/QuickFind/QuickFindUF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnionFind/QuickUnion/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnionFind/QuickUnion/QuickUnionUF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnionFind/WeightedQuickUnion/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnionFind/WeightedQuickUnion/WeightedQuickUnionUF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnionFind/WeightedQuickUnionWithPathCompression/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnionFind/WeightedQuickUnionWithPathCompression/WeightedQuickUnionWithPathCompressionUF.java" afterDir="false" />
+    <list default="true" id="68215a2c-07e2-4e55-9776-b6e4f15a8483" name="Changes" comment="Implement Union-Find algorithms">
+      <change afterPath="$PROJECT_DIR$/src/MonteCarlo/Percolation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +40,10 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/tomasznastula/IdeaProjects/Algorithms/src/UnionFind/WeightedQuickUnionWithPathCompression",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -123,7 +107,6 @@
       <list>
         <item itemvalue="Application.UnionFind.WeightedQuickUnionWithPathCompression.Main" />
         <item itemvalue="Application.UnionFind.QuickUnion.Main" />
-        <item itemvalue="Application.UnionFind.QuickFind.Main" />
         <item itemvalue="Application.RandomWord" />
       </list>
     </recent_temporary>
@@ -137,8 +120,17 @@
       <option name="presentableId" value="Default" />
       <updated>1657658422696</updated>
       <workItem from="1657658427790" duration="2029000" />
-      <workItem from="1657737158064" duration="7834000" />
+      <workItem from="1657737158064" duration="8181000" />
+      <workItem from="1658087234995" duration="3879000" />
     </task>
+    <task id="LOCAL-00001" summary="Implement Union-Find algorithms">
+      <created>1658087114076</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1658087114076</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +146,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implement Union-Find algorithms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement Union-Find algorithms" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
