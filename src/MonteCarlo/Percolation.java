@@ -1,13 +1,17 @@
 package MonteCarlo;
 
+import UnionFind.WeightedQuickUnionWithPathCompression.WeightedQuickUnionWithPathCompressionUF;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
 public class Percolation {
 
     private final int gridSize;
     private final int TOP_NODE_ID = 0;
     private final int BOTTOM_NODE_ID = 1;
-    private final int[] nodeIdToParentNodeId;
     private final boolean[] nodeIdIsOpen;
     private int openNodesCount;
+    private final int[] nodeIdToParentNodeId;
     private final int[] nodesCountToNodeBeingRootId;
 
     // creates n-by-n grid, with all sites initially blocked
@@ -36,30 +40,54 @@ public class Percolation {
 
     // opens the site (row, col) if it is not open already
     public void open(int row, int col) {
-        int nodeIndex = getNodeIndex(row, col);
+        int nodeId = getNodeId(row, col);
 
-        if (nodeIdIsOpen[nodeIndex]) {
+        if (isOpen(nodeId)) {
             return;
         }
 
-        nodeIdIsOpen[nodeIndex] = true;
+        nodeIdIsOpen[nodeId] = true;
         openNodesCount += 1;
 
-        // TODO call union on neighbours
+        // Connect to neighbour nodes
+        if (row + 1 <= gridSize) {
+            union(nodeId, getNodeId(row + 1, col));
+        }
+
+        if (row - 1 >= 1) {
+            union(nodeId, getNodeId(row - 1, col));
+        }
+
+        if (col + 1 <= gridSize) {
+            union(nodeId, getNodeId(row, col + 1));
+        }
+
+        if (col - 1 >= 1) {
+            union(nodeId, getNodeId(row, col - 1));
+        }
+
+        // Connect to virtual nodes
+        if (row == 1) {
+            union(nodeId, TOP_NODE_ID);
+        }
+
+        if (row == gridSize) {
+            union(nodeId, BOTTOM_NODE_ID);
+        }
     }
 
     // is the site (row, col) open?
     public boolean isOpen(int row, int col) {
-        int nodeIndex = getNodeIndex(row, col);
+        int nodeId = getNodeId(row, col);
 
-        return nodeIdIsOpen[nodeIndex];
+        return isOpen(nodeId);
     }
 
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
-        int nodeIndex = getNodeIndex(row, col);
+        int nodeId = getNodeId(row, col);
 
-        // TODO check if is connected to TOP_NODE
+        return connected(nodeId, TOP_NODE_ID);
     }
 
     // returns the number of open sites
@@ -69,15 +97,25 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        // TODO check if TOP_NODE and BOTTOM_NODE are connected
+        return connected(TOP_NODE_ID, BOTTOM_NODE_ID);
     }
 
     // test client (optional)
     public static void main(String[] args) {
-        // TODO implement test client
+        int size = StdIn.readInt();
+        Percolation percolation = new Percolation(size);
+        while (!StdIn.isEmpty()) {
+            int row = StdIn.readInt();
+            int col = StdIn.readInt();
+            if (!percolation.isOpen(row, col)) {
+                percolation.open(row, col);
+                StdOut.println("opening: " + row + " " + col);
+            }
+            StdOut.println("percolates? " + percolation.percolates());
+        }
     }
 
-    private int getNodeIndex(int row, int col) {
+    private int getNodeId(int row, int col) {
         if (row > gridSize || row < 1 || col > gridSize || col < 1) {
             throw new IllegalArgumentException();
         }
@@ -87,5 +125,54 @@ public class Percolation {
         int virtualNodesOffset = 2;
 
         return rowOffset + colOffset + virtualNodesOffset;
+    }
+
+    private boolean isOpen(int nodeId) {
+        return nodeIdIsOpen[nodeId];
+    }
+
+    private void union(int nodeId, int otherNodeId) {
+        if (nodeId == otherNodeId) {
+            return;
+        }
+
+        if (!isOpen(nodeId) || !isOpen(otherNodeId)) {
+            return;
+        }
+
+        int nodeRootId = root(nodeId);
+        int otherNodeRootId = root(otherNodeId);
+
+        if (nodeRootId == otherNodeRootId) {
+            return;
+        }
+
+        if (nodesCountToNodeBeingRootId[nodeRootId] > nodesCountToNodeBeingRootId[otherNodeRootId]) {
+            nodeIdToParentNodeId[otherNodeRootId] = nodeRootId;
+            nodesCountToNodeBeingRootId[nodeRootId] += nodesCountToNodeBeingRootId[otherNodeRootId];
+        } else {
+            nodeIdToParentNodeId[nodeRootId] = otherNodeRootId;
+            nodesCountToNodeBeingRootId[otherNodeRootId] += nodesCountToNodeBeingRootId[nodeRootId];
+        }
+    }
+
+    private boolean connected(int nodeId, int otherNodeId) {
+        if (nodeId == otherNodeId) {
+            return true;
+        }
+
+        int nodeRootId = root(nodeId);
+        int otherNodeRootId = root(otherNodeId);
+
+        return nodeRootId == otherNodeRootId;
+    }
+
+    private int root(int nodeId) {
+        while (nodeId != nodeIdToParentNodeId[nodeId]) {
+            nodeIdToParentNodeId[nodeId] = nodeIdToParentNodeId[nodeIdToParentNodeId[nodeId]];
+            nodeId = nodeIdToParentNodeId[nodeId];
+        }
+
+        return nodeId;
     }
 }
