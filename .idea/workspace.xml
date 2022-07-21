@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68215a2c-07e2-4e55-9776-b6e4f15a8483" name="Changes" comment="Initial work on Percolation">
-      <change afterPath="$PROJECT_DIR$/src/MonteCarlo/PercolationStats.java" afterDir="false" />
+    <list default="true" id="68215a2c-07e2-4e55-9776-b6e4f15a8483" name="Changes" comment="Add PercolationStats class stub">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MonteCarlo/Percolation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MonteCarlo/Percolation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MonteCarlo/PercolationStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MonteCarlo/PercolationStats.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +57,13 @@
       <recent name="UnionFind.QuickUnion" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Percolation">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UnionFind.QuickFind.Main" />
+  <component name="RunManager" selected="Application.PercolationStats">
+    <configuration name="Percolation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MonteCarlo.Percolation" />
       <module name="Algorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="UnionFind.QuickFind.*" />
+          <option name="PATTERN" value="MonteCarlo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,8 +71,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Percolation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MonteCarlo.Percolation" />
+    <configuration name="PercolationStats" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MonteCarlo.PercolationStats" />
       <module name="Algorithms" />
       <extension name="coverage">
         <pattern>
@@ -119,6 +119,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PercolationStats" />
         <item itemvalue="Application.Percolation" />
         <item itemvalue="Application.UnionFind.WeightedQuickUnionWithPathCompression.Main" />
         <item itemvalue="Application.UnionFind.QuickUnion.Main" />
@@ -139,7 +140,7 @@
       <workItem from="1658087234995" duration="4593000" />
       <workItem from="1658324885734" duration="2130000" />
       <workItem from="1658327529746" duration="57000" />
-      <workItem from="1658327601717" duration="374000" />
+      <workItem from="1658327601717" duration="6074000" />
     </task>
     <task id="LOCAL-00001" summary="Implement Union-Find algorithms">
       <created>1658087114076</created>
@@ -155,7 +156,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658173101629</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implement remaining WQUPC logic for Percolation">
+      <created>1658346181318</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658346181318</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add PercolationStats class stub">
+      <created>1658346800930</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658346800930</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +190,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implement Union-Find algorithms" />
     <MESSAGE value="Initial work on Percolation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial work on Percolation" />
+    <MESSAGE value="Implement remaining WQUPC logic for Percolation" />
+    <MESSAGE value="Add PercolationStats class stub" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add PercolationStats class stub" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

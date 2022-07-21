@@ -1,14 +1,13 @@
 package MonteCarlo;
 
-import UnionFind.WeightedQuickUnionWithPathCompression.WeightedQuickUnionWithPathCompressionUF;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Percolation {
 
+    private static final int TOP_NODE_ID = 0;
+    private static final int BOTTOM_NODE_ID = 1;
     private final int gridSize;
-    private final int TOP_NODE_ID = 0;
-    private final int BOTTOM_NODE_ID = 1;
     private final boolean[] nodeIdIsOpen;
     private int openNodesCount;
     private final int[] nodeIdToParentNodeId;
@@ -87,7 +86,7 @@ public class Percolation {
     public boolean isFull(int row, int col) {
         int nodeId = getNodeId(row, col);
 
-        return connected(nodeId, TOP_NODE_ID);
+        return root(nodeId) == root(TOP_NODE_ID);
     }
 
     // returns the number of open sites
@@ -97,7 +96,7 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        return connected(TOP_NODE_ID, BOTTOM_NODE_ID);
+        return root(TOP_NODE_ID) == root(BOTTOM_NODE_ID);
     }
 
     // test client (optional)
@@ -154,17 +153,6 @@ public class Percolation {
             nodeIdToParentNodeId[nodeRootId] = otherNodeRootId;
             nodesCountToNodeBeingRootId[otherNodeRootId] += nodesCountToNodeBeingRootId[nodeRootId];
         }
-    }
-
-    private boolean connected(int nodeId, int otherNodeId) {
-        if (nodeId == otherNodeId) {
-            return true;
-        }
-
-        int nodeRootId = root(nodeId);
-        int otherNodeRootId = root(otherNodeId);
-
-        return nodeRootId == otherNodeRootId;
     }
 
     private int root(int nodeId) {
